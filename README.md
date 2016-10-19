@@ -1,3 +1,3 @@
-Dependencies:
+**Dependencies:**
  * libnotify
  * python-gobject
