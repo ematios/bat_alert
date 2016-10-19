@@ -5,6 +5,8 @@ import glob
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify, GdkPixbuf
 
+THRESHOLD = 20
+
 def get_capacity_level():
         batteries = glob.glob("/sys/class/power_supply/*/capacity")
         combined_capacity = 0
@@ -35,7 +37,7 @@ def alert(capacity):
 
 def main():
     capacity=get_capacity_level()
-    if capacity < 20 and not charging():
+    if capacity < THRESHOLD and not charging():
         alert(capacity)
 
 if __name__ == "__main__":
